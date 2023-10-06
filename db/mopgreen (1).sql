@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2023 at 06:31 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Oct 06, 2023 at 12:03 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `data_sensor` (
   `hum1` int(3) NOT NULL,
   `ldr` int(3) NOT NULL,
   `soilm` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_sensor`
@@ -14763,7 +14763,21 @@ INSERT INTO `data_sensor` (`waktu`, `temp1`, `hum1`, `ldr`, `soilm`) VALUES
 ('2023-10-04 22:43:50', 25, 70, 0, 0),
 ('2023-10-04 22:44:10', 25, 69, 0, 0),
 ('2023-10-04 22:44:10', 25, 69, 0, 0),
-('2023-10-04 23:26:52', 25, 69, 300, 7);
+('2023-10-04 23:26:52', 25, 69, 300, 7),
+('2023-10-04 23:46:40', 25, 65, 250, 7),
+('2023-10-04 23:47:19', 26, 55, 280, 8),
+('2023-10-05 23:16:13', 28, 60, 400, 7),
+('2023-10-06 09:53:08', 28, 0, 300, 7),
+('2023-10-06 09:53:47', 28, 60, 300, 7),
+('2023-10-06 13:17:45', 28, 60, 300, 7),
+('2023-10-06 13:35:45', 28, 60, 300, 7),
+('2023-10-06 14:56:37', 28, 60, 300, 7),
+('2023-10-06 15:08:08', 28, 60, 300, 7),
+('2023-10-06 15:23:43', 28, 50, 310, 7),
+('2023-10-06 15:23:43', 28, 50, 0, 0),
+('2023-10-06 15:25:21', 28, 50, 0, 0),
+('2023-10-06 15:25:21', 28, 50, 310, 7),
+('2023-10-06 15:25:49', 28, 50, 310, 7);
 
 -- --------------------------------------------------------
 
@@ -14774,7 +14788,7 @@ INSERT INTO `data_sensor` (`waktu`, `temp1`, `hum1`, `ldr`, `soilm`) VALUES
 CREATE TABLE `level_detail` (
   `id_level` tinyint(4) NOT NULL,
   `level` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `level_detail`
@@ -14800,7 +14814,7 @@ CREATE TABLE `user_detail` (
   `email` varchar(50) NOT NULL,
   `password` varchar(25) NOT NULL,
   `level` tinyint(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_detail`
