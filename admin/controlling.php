@@ -550,21 +550,7 @@ $sesLvl = $_SESSION['level'];
   <!-- Paho MQTT Client -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- <script type="text/javascript">
-  var timeDisplay = document.getElementById("time");
-  function refreshTime() {
-    var dateString = new Date().toLocaleString("en-US", {timeZone: "Asia/Jakarta"});
-    var formattedString = dateString.replace(", ", " - ");
-    timeDisplay.innerHTML = formattedString;
-  }
 
-  setInterval(refreshTime, 1000);
-  var host = "
-  ";
-  var port = 9001;
-  var client = new Paho.MQTT.Client(host, port, "/ws",
-    "myclientid_" + parseInt(Math.random() * 100, 10));
-  </script> -->
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
   <script src="js/jquery-3.5.1.js"></script>
@@ -573,23 +559,6 @@ $sesLvl = $_SESSION['level'];
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/water.js"></script>
   <script src="js/script.js"></script>
-  <!-- <script type="text/javascript">
-    var timeDisplay = document.getElementById("time");
-    function refreshTime() {
-      var dateString = new Date().toLocaleString("en-US", {timeZone: "Asia/Jakarta"});
-      var formattedString = dateString.replace(", ", " - ");
-      timeDisplay.innerHTML = formattedString;
-    }
-
-    setInterval(refreshTime, 1000);
-  </script> -->
-  <!-- <script>
-//     const switch12 = document.getElementById("mySwitch12");
-//     setInterval(function() {
-//   switch12.click();
-// }, 5000);
-  </script>
- -->
 
   <script>
     var host = "103.152.118.119";
@@ -705,134 +674,10 @@ $sesLvl = $_SESSION['level'];
     console.log("koneksi ke 103.152.118.119");
     // document.getElementById("messages").innerHTML += "Koneksi Ke Broker MQTT - Alamat: " + host + ":" + port + "<br/>";
     var twater3 = 80;
-    // var loadingEle = $(".water1");
-    //    var loading_width = loadingEle.width(),
-    //    loading_height = loadingEle.height();
-    //    $(".water1").createWaterBall({
-    //      cvs_config: {
-    //        width: loading_width,
-    //        height: loading_height
-    //      },
-    //      wave_config: {
-    //        waveWidth: 0.02,
-    //        waveHeight: 5
-    //      },
-    //      data_range: [30, 70, 100],
-    //      isLoading: true,
-    //      nowRange: 70,
-    //      targetRange: 70
-    //    });
-    //    setTimeout(function() {
-    //      $(".water1").createWaterBall("updateRange", twater1);
+    eateWaterBall("updateRange", twater1);
     //    }, 1000);
   </script>
   <script>
-    //  var host = "20.20.0.245";
-    //  var port = 9001;
-
-    //    // Konstruktor koneksi antara client dan message broker
-    //  var client = new Paho.MQTT.Client(host, port, "/ws",
-    //    "myclientid_" + parseInt(Math.random() * 100, 10));
-
-    //    // Menjalin koneksi antara client dan message broker
-    //  client.onConnectionLost = function (responseObject) {
-    //    console.log("connection error");
-    //    //document.getElementById("messages").innerHTML = "Koneksi Ke Broker MQTT Putus - " + responseObject.errorMessage + "<br/>";
-    //  };
-
-    //    // variabel global data sensor IoT Development Board
-    //    // website berposisi sebagai subscriber
-    //  var twater1 = 0;
-    //  var twater2 = 0;
-
-    //    // Mendapatkan payload dari transimisi data IoT Development Board
-    //    // kemudian memilah dan melimpahkanya ke varibael berdasarkan TOPIC.
-    //  client.onMessageArrived = function (message) {
-    //    console.log(message)
-    //    if (message.destinationName == "twater") {
-    //     console.log(message.payloadString)
-    //     const data = JSON.parse(message.payloadString)
-    //     twater1 = data["twater1"]
-    //     twater2 = data["twater2"]
-    //      var objwater = {"twater1": twater1, "twater2": twater2};
-    //      console.log(objwater);
-    //     // console.log(twater1);
-    //   }}
-
-    //   //subscribe topic twater
-    //  var options = {
-    //    timeout: 60,
-    //    keepAliveInterval: 30,
-    //    onSuccess: function () {
-    //      console.log("connection success");
-    //      //document.getElementById("messages").innerHTML += "Koneksi Ke Broker MQTT Sukses" + "<br/>";
-    //      client.subscribe("twater", {
-    //        qos: 1
-    //      });
-    //    },
-
-    //    onFailure: function (message) {
-    //      console.log("connection error");
-    //      //document.getElementById("messages").innerHTML += "Koneksi ke Broker MQTT Gagal - " + message.errorMessage + "<br/>";
-    //    },
-
-    //    userName: "",
-    //    password: ""
-    //  };
-
-    //  if (location.protocol == "https:") {
-    //    options.useSSL = true;
-    //  }
-    //  // var objwater = {"twater1": twater1, "twater2": twater2};
-    //  //    console.log(objwater);
-    //  client.connect(options);
-    // // document.getElementById("messages").innerHTML += "Koneksi Ke Broker MQTT - Alamat: " + host + ":" + port + "<br/>";
-
-
-    //
-    // var loadingEle = $(".water1");
-    // var loading_width = loadingEle.width(),
-    // loading_height = loadingEle.height();
-    // $(".water1").createWaterBall({
-    //   cvs_config: {
-    //     width: loading_width,
-    //     height: loading_height
-    //   },
-    //   wave_config: {
-    //     waveWidth: 0.02,
-    //     waveHeight: 5
-    //   },
-    //   data_range: [30, 70, 100],
-    //   isLoading: true,
-    //   nowRange: 70,
-    //   targetRange: 70
-    // });
-    // setTimeout(function() {
-    //   $(".water1").createWaterBall("updateRange", 50);
-    // }, 1000);
-  </script>
-
-  <script>
-    // var loadingEle = $(".water2");
-    // var loading_width = loadingEle.width(),
-    // loading_height = loadingEle.height();
-    // $(".water2").createWaterBall({
-    //   cvs_config: {
-    //     width: loading_width,
-    //     height: loading_height
-    //   },
-    //   wave_config: {
-    //     waveWidth: 0.02,
-    //     waveHeight: 5
-    //   },
-    //   data_range: [30, 70, 100],
-    //   isLoading: true,
-    //   nowRange: 70,
-    //   targetRange: 70
-    // });
-    // setTimeout(function() {
-    //   $(".water2").createWaterBall("updateRange", 60);
-    // }, 1000);
     const switch10 = document.getElementById("mySwitch10");
     const switch11 = document.getElementById("mySwitch11");
     const kotak8 = document.getElementById("kotak8");
@@ -933,14 +778,6 @@ $sesLvl = $_SESSION['level'];
 
 
     })
-    // if(switch11==true)
-    //   setTimeout(function() {
-    //   $(".water2").createWaterBall("updateRange", 100);
-    // }, 1000);
-    // else
-    //   setTimeout(function() {
-    //   $(".water2").createWaterBall("updateRange", 40);
-    // }, 1000);
   </script>
   <script>
     /*-----------------------------------------------------
@@ -974,40 +811,10 @@ $sesLvl = $_SESSION['level'];
         humadity1 = data["humadity1"]
         temp1 = data["temp1"]
       }
-      // if (message.destinationName == "ldr") {
-      //  ldr = message.payloadString;
-      // } else if (message.destinationName == "sr04") {
-      //  sr04 = message.payloadString; 
-      // // else if (message.destinationName == "dht") {
-      // //   var dht = JSON.parse(message.payloadString);
-      // //   humi = dht.kelembaban;
-      // //   temp = dht.suhu;
-      // } else if (message.destinationName == "temp") {
-      //  temp = message.payloadString;
-
-
-      // } else if (message.destinationName == "humadity") {
-      //  humadity = message.payloadString;
-      // }
-
-      // else if (message.destinationName == "/remoteir") {
-      //  keypad = message.payloadString;
-
 
       document.getElementById("hitTEMP").innerHTML = temp1 + " °C";
       document.getElementById("hitHUM").innerHTML = (humadity1) + " HR";
-      //document.write(temp);
-      //console.log(temp);
-      //$.post('http:/localhost/iot/insert.php', { "temp" : temp});
-      //now = {"temp&humadity": [
-      //{"temp": "25", "humadity": "45"},
-      //{"temp": "26", "humadity": "44"}
-      //]};
-      //var x=2; var y='am';
-      //k={"temp":"'+temp+'","humadity":"'+humadity+'"};
-      //now.events.push(k);
-      //console.log(now);
-      //JSONObject.temp = temp;
+
       var obj = {
         "temp1": temp1,
         "humadity1": humadity1
@@ -1026,24 +833,7 @@ $sesLvl = $_SESSION['level'];
         .then((data) => {
           console.log('Success:', data);
         })
-      //   .catch((error) => {
-      //     console.error('Error:', error);
-      //   });
-      //require('fs').writeFile('file.json', JSON.stringify(obj), (error) => {
-      //    if (error) {
-      //      throw error;
-      // }
-      // });
-      //var datas = obj;
-      //var txtFile = "/tmp/test.txt";
-      //var file = new File(txtFile,"write");
-      //var datas = JSON.stringify(JsonExport);
 
-      //log("opening file...");
-      //file.open(); 
-      //log("writing file..");
-      //file.writeline(datas);
-      //file.close();
     };
     // Option mqtt dengan mode subscribe dan qos diset 1
     var options = {
@@ -1263,22 +1053,7 @@ $sesLvl = $_SESSION['level'];
         }
       }
     }
-    // switch1.addEventListener('click', function(){
-    //   if (switch1.checked == true) {
-    //     switch2.checked == true;
-    //     switch5.checked == true;
-    //     switch6.checked == true;
-    //     switch7.checked == true;
-    //   }else{
-    //     switch4.checked == false;
-    //     switch5.checked == false;
-    //     switch6.checked == false;
-    //     switch7.checked == false;
-    //   }
-    // });
-    // setInterval(function() {
-    //   switch12.click();
-    // }, 5000);
+
     switch12.addEventListener("change", () => {
       if (switch12.checked == true) {
         var suhu_atas = document.getElementById("suhuatas").value;
@@ -1820,168 +1595,7 @@ $sesLvl = $_SESSION['level'];
         clientPub.connect(optionsPub);
         kotak11.style.backgroundColor = "red";
       }
-
-
     })
-    // switch12.addEventListener("change",()=>{
-    //   // var suhu_atas = "0";
-    //   // var suhu_bawah = "0";
-    //   // var kelembapan_atas = "0";
-    //   // var kelembapan_bawah = "0"; 
-
-    //     // <!-- if (checkbox.checked) {
-    //     // <!-- statusFan1 = "0";
-    //     // <!--} else {
-    //     // <!-- statusFan1 = "1";
-    //     // <!--} -->
-    //   if (switch12.checked == true){    
-    //     var suhu_atas = document.getElementById("suhuatas");
-    //     var suhu_bawah = document.getElementById("suhubawah");
-    //     var kelembapan_atas = document.getElementById("kelembabanatas");
-    //     var kelembapan_bawah = document.getElementById("kelembabanbawah");
-
-    //     // Store JSON data in a JS variable
-    //     var json = '{"suhu_atas": suhu_atas, "suhu_bawah": suhu_bawah, "kelembapan_atas": kelembapan_atas, "kelembapan_bawah": kelembapan_bawah}';
-
-    //     // Converting JSON-encoded string to JS object
-    //     var objautocontrol = JSON.parse(json);
-    //     console.log(json)
-    //     var clientPub100 = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
-    //     var optionsPub100 = {
-    //       userName: "",
-    //       password: "",
-    //       timeout: 3,
-    //       keepAliveInterval: 30,
-    //       onSuccess: function () {
-    //         autocontrolPub = new Paho.MQTT.Message(objautocontrol);
-    //         autocontrolPub.destinationName = "auto_control";
-    //         clientPub.send(autocontrolPub);
-    //         clientPub.disconnect();
-    //       },
-    //     };
-    //     clientPub100.connect(optionsPub100);
-    //     // kotak10.style.backgroundColor="green";
-    //   }if (switch12.checked == false){    
-    //     var suhu_atas = "0";
-    //   var suhu_bawah = "0";
-    //   var kelembapan_atas = "0";
-    //   var kelembapan_bawah = "0"; 
-    //   var json = '{"suhu_atas": suhu_atas, "suhu_bawah": suhu_bawah, "kelembapan_atas": kelembapan_atas, "kelembapan_bawah": kelembapan_bawah}';
-
-    //     // Converting JSON-encoded string to JS object
-    //     var objautocontrol = JSON.parse(json);
-
-    //     var clientPub100 = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
-    //     var optionsPub100 = {
-    //       userName: "",
-    //       password: "",
-    //       timeout: 3,
-    //       keepAliveInterval: 30,
-    //       onSuccess: function () {
-    //         autocontrolPub = new Paho.MQTT.Message(objautocontrol);
-    //         autocontrolPub.destinationName = "auto_control";
-    //         clientPub.send(autocontrolPub);
-    //         clientPub.disconnect();
-    //       },
-    //     };
-    //     clientPub100.connect(optionsPub100);
-    //     // kotak10.style.backgroundColor="red";
-    //   }
-
-
-    // })
-    // switch10.addEventListener("change",()=>{
-    //   var statusPompaN1 = "0"; 
-
-    //    // <!-- if (checkbox.checked) {
-    //    // <!-- statusFan1 = "0";
-    //    // <!--} else {
-    //    // <!-- statusFan1 = "1";
-    //    // <!--} -->
-    //   if (switch10.checked == true){    
-    //     statusPompaN1 = "1";
-    //    var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
-    //    var optionsPub = {
-    //      userName: "",
-    //      password: "",
-    //      timeout: 3,
-    //      keepAliveInterval: 30,
-    //      onSuccess: function () {
-    //        PompaN1Pub = new Paho.MQTT.Message(statusPompaN1);
-    //        PompaN1Pub.destinationName = "PompaN1";
-    //        clientPub.send(PompaN1Pub);
-    //        clientPub.disconnect();
-    //      },
-    //    };
-    //    clientPub.connect(optionsPub);
-    //    kotak8.style.backgroundColor="green";
-    //  }if (switch10.checked == false){    
-    //     statusPompaN1 = "0";
-    //    var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
-    //    var optionsPub = {
-    //      userName: "",
-    //      password: "",
-    //      timeout: 3,
-    //      keepAliveInterval: 30,
-    //      onSuccess: function () {
-    //        PompaN1Pub = new Paho.MQTT.Message(statusPompaN1);
-    //        PompaN1Pub.destinationName = "PompaN1";
-    //        clientPub.send(PompaN1Pub);
-    //        clientPub.disconnect();
-    //      },
-    //    };
-    //    clientPub.connect(optionsPub);
-    //    kotak8.style.backgroundColor="red";
-    //  }
-
-
-    // })
-    // switch11.addEventListener("change",()=>{
-    //   var statusPompaN2 = "0"; 
-
-    //    // <!-- if (checkbox.checked) {
-    //    // <!-- statusFan1 = "0";
-    //    // <!--} else {
-    //    // <!-- statusFan1 = "1";
-    //    // <!--} -->
-    //   if (switch11.checked == true){    
-    //     statusPompaN2 = "1";
-    //    var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
-    //    var optionsPub = {
-    //      userName: "",
-    //      password: "",
-    //      timeout: 3,
-    //      keepAliveInterval: 30,
-    //      onSuccess: function () {
-    //        PompaN2Pub = new Paho.MQTT.Message(statusPompaN2);
-    //        PompaN2Pub.destinationName = "PompaN2";
-    //        clientPub.send(PompaN2Pub);
-    //        clientPub.disconnect();
-    //      },
-    //    };
-    //    clientPub.connect(optionsPub);
-    //    kotak9.style.backgroundColor="green";
-    //  }if (switch11.checked == false){    
-    //     statusPompaN2 = "0";
-    //    var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
-    //    var optionsPub = {
-    //      userName: "",
-    //      password: "",
-    //      timeout: 3,
-    //      keepAliveInterval: 30,
-    //      onSuccess: function () {
-    //        PompaN2Pub = new Paho.MQTT.Message(statusPompaN2);
-    //        PompaN2Pub.destinationName = "PompaN2";
-    //        clientPub.send(PompaN2Pub);
-    //        clientPub.disconnect();
-    //      },
-    //    };
-    //    clientPub.connect(optionsPub);
-    //    kotak9.style.backgroundColor="red";
-    //  }
-
-
-    // })
   </script>
 </body>
 
