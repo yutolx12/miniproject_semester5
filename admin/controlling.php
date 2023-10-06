@@ -135,6 +135,13 @@ $sesLvl = $_SESSION['level'];
       background-color: red;
     }
 
+    .kotak11 {
+      margin-left: -5px;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+    }
+
     .water1 {
       width: 130px;
       height: 130px;
@@ -340,6 +347,13 @@ $sesLvl = $_SESSION['level'];
                 </div>
                 <!-- <label class="form-check-label" for="mySwitch"></label> -->
               </div>
+              <div class="form-check form-switch">
+                <div class="row">
+                  <h6 class="text-start">Lampu LED</h6>
+                  <input class="form-check-input align" type="checkbox" id="mySwitch10" value="yes">
+                </div>
+                <!-- <label class="form-check-label" for="mySwitch"></label> -->
+              </div>
             </div>
           </div>
         </div>
@@ -349,7 +363,7 @@ $sesLvl = $_SESSION['level'];
               <h3>Pompa Nutrisi</h3>
             </div>
             <div class="card-body">
-              <div class="row align-items-center text-center">
+              <!-- <div class="row align-items-center text-center">
                 <h5 class="">Nutrisi 1</h5>
                 <div class="water1"></div>
               </div>
@@ -358,15 +372,15 @@ $sesLvl = $_SESSION['level'];
                   <h5 class="text-start">Pompa Irigasi 1</h5>
                   <input class="form-check-input align" type="checkbox" id="mySwitch10" value="yes">
                 </div>
-                <!-- <label class="form-check-label" for="mySwitch"></label> -->
-              </div>
+                <label class="form-check-label" for="mySwitch"></label> -->
+              <!-- </div> -->
               <div class="row align-items-center text-center">
-                <h5 class="text-center">Nutrisi 2</h5>
+                <h5 class="text-center">Nutrisi 1</h5>
                 <div class="water2 text-center"></div>
               </div>
               <div class="form-check form-switch">
                 <div class="row">
-                  <h5 class="text-start">Pompa Irigasi 2</h5>
+                  <h5 class="text-start">Pompa Nutrisi 1</h5>
                   <input class="form-check-input align" type="checkbox" id="mySwitch11" value="yes">
                 </div>
                 <!-- <label class="form-check-label" for="mySwitch"></label> -->
@@ -436,20 +450,20 @@ $sesLvl = $_SESSION['level'];
                   <h4 class="">Pengkabutan</h4>
                 </div>
               </div>
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-md-1 col-sm-1 col-1">
                   <input class="kotak8" id="kotak8" disabled></input>
                 </div>
                 <div class="col-md-10 col-sm-10 col-10">
                   <h4 class="">Pompa N1</h4>
                 </div>
-              </div>
+              </div> -->
               <div class="row">
                 <div class="col-md-1 col-sm-1 col-1">
                   <input class="kotak9" id="kotak9" disabled></input>
                 </div>
                 <div class="col-md-10 col-sm-10 col-10">
-                  <h4 class="">Pompa N2</h4>
+                  <h4 class="">Pompa Nutrisi</h4>
                 </div>
               </div>
               <div class="row">
@@ -458,6 +472,14 @@ $sesLvl = $_SESSION['level'];
                 </div>
                 <div class="col-md-10 col-sm-10 col-10">
                   <h4 class="">Fresh Water</h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-1 col-sm-1 col-1">
+                  <input class="kotak11" id="kotak11" disabled></input>
+                </div>
+                <div class="col-md-10 col-sm-10 col-10">
+                  <h4 class="">Lampu LED</h4>
                 </div>
               </div>
             </div>
@@ -570,7 +592,7 @@ $sesLvl = $_SESSION['level'];
  -->
 
   <script>
-    var host = "192.168.43.68";
+    var host = "103.152.118.119";
     // var host = "192.168.1.35";
     var port = 9001;
 
@@ -670,8 +692,8 @@ $sesLvl = $_SESSION['level'];
         //document.getElementById("messages").innerHTML += "Koneksi ke Broker MQTT Gagal - " + message.errorMessage + "<br/>";
       },
 
-      userName: "",
-      password: ""
+      userName: "labskk",
+      password: "labskkpolije"
     };
 
     if (location.protocol == "https:") {
@@ -680,7 +702,7 @@ $sesLvl = $_SESSION['level'];
     // var objwater = {"twater1": twater1, "twater2": twater2};
     //    console.log(objwater);
     client2.connect(options2);
-    console.log("koneksi ke 192.168.43.68");
+    console.log("koneksi ke 103.152.118.119");
     // document.getElementById("messages").innerHTML += "Koneksi Ke Broker MQTT - Alamat: " + host + ":" + port + "<br/>";
     var twater3 = 80;
     // var loadingEle = $(".water1");
@@ -816,6 +838,7 @@ $sesLvl = $_SESSION['level'];
     const kotak8 = document.getElementById("kotak8");
     const kotak9 = document.getElementById("kotak9");
 
+
     switch10.addEventListener("change", () => {
       var statusPompaN1 = "0";
 
@@ -828,8 +851,8 @@ $sesLvl = $_SESSION['level'];
         statusPompaN1 = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -846,8 +869,8 @@ $sesLvl = $_SESSION['level'];
         statusPompaN1 = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -875,8 +898,8 @@ $sesLvl = $_SESSION['level'];
         statusPompaN2 = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -893,8 +916,8 @@ $sesLvl = $_SESSION['level'];
         statusPompaN2 = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -924,7 +947,7 @@ $sesLvl = $_SESSION['level'];
   BAGIAN MQTT YANG TERKONEKSI DENGAN MESSAGE BROKER
   -----------------------------------------------------*/
     // Menentuan alamat IP dan PORT message broker
-    var host = "192.168.43.68";
+    var host = "103.152.118.119";
     var port = 9001;
 
     // Konstruktor koneksi antara client dan message broker
@@ -1037,8 +1060,8 @@ $sesLvl = $_SESSION['level'];
         //document.getElementById("messages").innerHTML += "Koneksi ke Broker MQTT Gagal - " + message.errorMessage + "<br/>";
       },
 
-      userName: "",
-      password: ""
+      userName: "labskk",
+      password: "labskkpolije"
     };
 
     if (location.protocol == "https:") {
@@ -1059,6 +1082,7 @@ $sesLvl = $_SESSION['level'];
     const switch7 = document.getElementById("mySwitch7");
     const switch8 = document.getElementById("mySwitch8");
     const switch9 = document.getElementById("mySwitch9");
+    const switch13 = document.getElementById("mySwitch10");
     // const switch10 = document.getElementById("mySwitch10");
     // const switch11 = document.getElementById("mySwitch11");
     const switch12 = document.getElementById("mySwitch12");
@@ -1073,6 +1097,7 @@ $sesLvl = $_SESSION['level'];
     // const kotak7 = document.getElementById("kotak8");
     // const kotak7 = document.getElementById("kotak9");
     const kotak10 = document.getElementById("kotak10");
+    const kotak11 = document.getElementById("kotak11");
     const suhuatas = document.getElementById("suhuatas");
     const suhubawah = document.getElementById("suhubawah");
     const kelembabanatas = document.getElementById("kelembabanatas");
@@ -1103,8 +1128,8 @@ $sesLvl = $_SESSION['level'];
           var clientPub3 = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
           var clientPub4 = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
           var optionsPub = {
-            userName: "",
-            password: "",
+            userName: "labskk",
+            password: "labskkpolije",
             timeout: 3,
             keepAliveInterval: 30,
             onSuccess: function() {
@@ -1115,8 +1140,8 @@ $sesLvl = $_SESSION['level'];
             },
           };
           var optionsPub2 = {
-            userName: "",
-            password: "",
+            userName: "labskk",
+            password: "labskkpolije",
             timeout: 3,
             keepAliveInterval: 30,
             onSuccess: function() {
@@ -1127,8 +1152,8 @@ $sesLvl = $_SESSION['level'];
             },
           };
           var optionsPub3 = {
-            userName: "",
-            password: "",
+            userName: "labskk",
+            password: "labskkpolije",
             timeout: 3,
             keepAliveInterval: 30,
             onSuccess: function() {
@@ -1139,8 +1164,8 @@ $sesLvl = $_SESSION['level'];
             },
           };
           var optionsPub4 = {
-            userName: "",
-            password: "",
+            userName: "labskk",
+            password: "labskkpolije",
             timeout: 3,
             keepAliveInterval: 30,
             onSuccess: function() {
@@ -1180,8 +1205,8 @@ $sesLvl = $_SESSION['level'];
           var clientPub3 = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
           var clientPub4 = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
           var optionsPub = {
-            userName: "",
-            password: "",
+            userName: "labskk",
+            password: "labskkpolije",
             timeout: 3,
             keepAliveInterval: 30,
             onSuccess: function() {
@@ -1192,8 +1217,8 @@ $sesLvl = $_SESSION['level'];
             },
           };
           var optionsPub2 = {
-            userName: "",
-            password: "",
+            userName: "labskk",
+            password: "labskkpolije",
             timeout: 3,
             keepAliveInterval: 30,
             onSuccess: function() {
@@ -1204,8 +1229,8 @@ $sesLvl = $_SESSION['level'];
             },
           };
           var optionsPub3 = {
-            userName: "",
-            password: "",
+            userName: "labskk",
+            password: "labskkpolije",
             timeout: 3,
             keepAliveInterval: 30,
             onSuccess: function() {
@@ -1216,8 +1241,8 @@ $sesLvl = $_SESSION['level'];
             },
           };
           var optionsPub4 = {
-            userName: "",
-            password: "",
+            userName: "labskk",
+            password: "labskkpolije",
             timeout: 3,
             keepAliveInterval: 30,
             onSuccess: function() {
@@ -1276,8 +1301,8 @@ $sesLvl = $_SESSION['level'];
         console.log(json)
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1324,8 +1349,8 @@ $sesLvl = $_SESSION['level'];
 
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1366,8 +1391,8 @@ $sesLvl = $_SESSION['level'];
         statusFreshWater = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1384,8 +1409,8 @@ $sesLvl = $_SESSION['level'];
         statusFreshWater = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1413,8 +1438,8 @@ $sesLvl = $_SESSION['level'];
         statusPompaMisting = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1431,8 +1456,8 @@ $sesLvl = $_SESSION['level'];
         statusPompaMisting = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1460,8 +1485,8 @@ $sesLvl = $_SESSION['level'];
         statusFan1 = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1479,8 +1504,8 @@ $sesLvl = $_SESSION['level'];
         statusFan1 = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1512,8 +1537,8 @@ $sesLvl = $_SESSION['level'];
         statusFan2 = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1531,8 +1556,8 @@ $sesLvl = $_SESSION['level'];
         statusFan2 = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1563,8 +1588,8 @@ $sesLvl = $_SESSION['level'];
         statusFan3 = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1582,8 +1607,8 @@ $sesLvl = $_SESSION['level'];
         statusFan3 = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1616,8 +1641,8 @@ $sesLvl = $_SESSION['level'];
         statusFan4 = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1635,8 +1660,8 @@ $sesLvl = $_SESSION['level'];
         statusFan4 = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1669,8 +1694,8 @@ $sesLvl = $_SESSION['level'];
         statusCoolPad1 = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1687,8 +1712,8 @@ $sesLvl = $_SESSION['level'];
         statusCoolPad1 = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1716,8 +1741,8 @@ $sesLvl = $_SESSION['level'];
         statusCoolPad2 = "1";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1734,8 +1759,8 @@ $sesLvl = $_SESSION['level'];
         statusCoolPad2 = "0";
         var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
         var optionsPub = {
-          userName: "",
-          password: "",
+          userName: "labskk",
+          password: "labskkpolije",
           timeout: 3,
           keepAliveInterval: 30,
           onSuccess: function() {
@@ -1747,6 +1772,53 @@ $sesLvl = $_SESSION['level'];
         };
         clientPub.connect(optionsPub);
         kotak6.style.backgroundColor = "red";
+      }
+
+
+    })
+    switch13.addEventListener("change", () => {
+      var statusLampuLed = "0";
+
+      // <!-- if (checkbox.checked) {
+      // <!-- statusFan1 = "0";
+      // <!--} else {
+      // <!-- statusFan1 = "1";
+      // <!--} -->
+      if (switch13.checked == true) {
+        statusLampuLed = "1";
+        var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
+        var optionsPub = {
+          userName: "labskk",
+          password: "labskkpolije",
+          timeout: 3,
+          keepAliveInterval: 30,
+          onSuccess: function() {
+            LampuLedPub = new Paho.MQTT.Message(statusLampuLed);
+            LampuLedPub.destinationName = "LampuLed";
+            clientPub.send(LampuLedPub);
+            clientPub.disconnect();
+          },
+        };
+        clientPub.connect(optionsPub);
+        kotak11.style.backgroundColor = "green";
+      }
+      if (switch13.checked == false) {
+        statusLampuLed = "0";
+        var clientPub = new Paho.MQTT.Client(host, port, "/ws", "myclientidPub_" + parseInt(Math.random() * 100, 10));
+        var optionsPub = {
+          userName: "labskk",
+          password: "labskkpolije",
+          timeout: 3,
+          keepAliveInterval: 30,
+          onSuccess: function() {
+            LampuLedPub = new Paho.MQTT.Message(statusLampuLed);
+            LampuLedPub.destinationName = "LampuLed";
+            clientPub.send(LampuLedPub);
+            clientPub.disconnect();
+          },
+        };
+        clientPub.connect(optionsPub);
+        kotak11.style.backgroundColor = "red";
       }
 
 

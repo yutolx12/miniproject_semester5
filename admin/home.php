@@ -374,7 +374,7 @@ $sesLvl = $_SESSION['level'];
   BAGIAN MQTT YANG TERKONEKSI DENGAN MESSAGE BROKER
   -----------------------------------------------------*/
     // Menentuan alamat IP dan PORT message broker
-    var host = "192.168.43.68";
+    var host = "103.152.118.119";
     var port = 9001;
 
     // Konstruktor koneksi antara client dan message broker
@@ -497,8 +497,8 @@ $sesLvl = $_SESSION['level'];
         document.getElementById("messages").innerHTML += "Koneksi ke Broker MQTT Gagal - " + message.errorMessage + "<br/>";
       },
 
-      userName: "",
-      password: ""
+      userName: "labskk",
+      password: "labskkpolije"
     };
 
     if (location.protocol == "https:") {
